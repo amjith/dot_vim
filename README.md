@@ -1,12 +1,10 @@
 dot_vim
 =======
 
-# Clone this repo into .vim folder. 
+1. Clone this repo into .vim folder. 
 
-# Symlink vimrc to ~/.vimrc
+2. Symlink vimrc to ~/.vimrc
 
-# Launch vim
+3. Launch vim
 
-# Run :BundleInstall
-
-
+4.  Run :BundleInstall
