@@ -1,4 +1,12 @@
 dot_vim
 =======
 
-vim config
+# Clone this repo into .vim folder. 
+
+# Symlink vimrc to ~/.vimrc
+
+# Launch vim
+
+# Run :BundleInstall
+
+
