@@ -16,24 +16,26 @@ Bundle 'tpope/vim-surround'
 Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
-Bundle 'benmills/vimux'
+"Bundle 'benmills/vimux'
 Bundle 'Lokaltog/vim-powerline'
-Bundle 'Lokaltog/vim-easymotion'
+"Bundle 'Lokaltog/vim-easymotion'
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
 Bundle "honza/vim-snippets"
 Bundle 'garbas/vim-snipmate'
 Bundle 'majutsushi/tagbar'
 Bundle 'sjl/gundo.vim'
-Bundle 'Shougo/neocomplcache'
+"Bundle 'Shougo/neocomplcache'
 Bundle 'mutewinter/vim-indent-guides'
-"Bundle 'fholgado/minibufexpl.vim'
-Bundle 'davidhalter/jedi-vim'
+Bundle 'bling/vim-bufferline'
+"Bundle 'davidhalter/jedi-vim'
 Bundle 'amjith/rtf-highlight'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'rking/ag.vim'
 Bundle 'klen/python-mode'
 "Bundle 'ervandew/supertab'
+Bundle 'tomasr/molokai'
+Bundle 'Valloric/YouCompleteMe'
 
 " Vim-script Repo
 Bundle 'L9'
@@ -51,7 +53,7 @@ Bundle 'sjl/badwolf'
 "if has("gui_running")
     "colorscheme solarized
 "else
-    "colorscheme solarized
+colorscheme molokai
 "endif
 
 if has("syntax")
@@ -189,7 +191,7 @@ set pastetoggle=<F2>
 " E302 - Two blank lines before function definitions.
 " E701 - multiple statmenets on one line (colon)
 let g:pymode_lint_ignore = "E501,E302,E701,E128,E126"
-let g:pymode_lint_cwindow = 0
+let g:pymode_lint_cwindow = 1
 
 " NERDTree Toggle.
 map <leader>n :NERDTreeToggle<CR>
@@ -233,4 +235,3 @@ au BufRead,BufNewFile *.chimp setfiletype chimp
 " Natural Splits
 set splitbelow
 set splitright
-let g:acp_enableAtStartup = 0
