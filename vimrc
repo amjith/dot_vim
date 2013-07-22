@@ -21,7 +21,7 @@ Bundle 'Lokaltog/vim-powerline'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
-Bundle "honza/snipmate-snippets"
+Bundle "honza/vim-snippets"
 Bundle 'garbas/vim-snipmate'
 Bundle 'majutsushi/tagbar'
 Bundle 'sjl/gundo.vim'
