@@ -13,16 +13,18 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-rsi'
 Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-ragtag'
 Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
+Bundle 'scrooloose/syntastic'
 "Bundle 'benmills/vimux'
 Bundle 'Lokaltog/vim-powerline'
 "Bundle 'Lokaltog/vim-easymotion'
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
-Bundle "honza/vim-snippets"
-Bundle 'garbas/vim-snipmate'
+"Bundle "honza/vim-snippets"
+"Bundle 'garbas/vim-snipmate'
 Bundle 'majutsushi/tagbar'
 Bundle 'sjl/gundo.vim'
 "Bundle 'Shougo/neocomplcache'
@@ -32,7 +34,7 @@ Bundle 'bling/vim-bufferline'
 Bundle 'amjith/rtf-highlight'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'rking/ag.vim'
-Bundle 'klen/python-mode'
+"Bundle 'klen/python-mode'
 "Bundle 'ervandew/supertab'
 Bundle 'tomasr/molokai'
 Bundle 'Valloric/YouCompleteMe'
@@ -235,3 +237,37 @@ au BufRead,BufNewFile *.chimp setfiletype chimp
 " Natural Splits
 set splitbelow
 set splitright
+
+" Syntastic config
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_check_on_wq = 0
+
+" YouCompleteMe config
+let g:ycm_min_num_of_chars_for_completion = 1
+let g:ycm_complete_in_comments = 1
+let g:ycm_collect_identifiers_from_comments_and_strings = 1
+let g:ycm_collect_identifiers_from_tags_files = 1
+let g:ycm_seed_identifiers_with_syntax = 1
+let g:ycm_filepath_completion_use_working_dir = 1
+
+nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration
+
+" A function that can save the status before executing a command.
+" Useful when removing trailing spaces without losing the last cursor position.
+function! Preserve(command)
+  " Preparation: save last search, and cursor position.
+  let _s=@/
+  let l = line(".")
+  let c = col(".")
+  " Do the business:
+  execute a:command
+  " Clean up: restore previous search history, and cursor position
+  let @/=_s
+  call cursor(l, c)
+endfunction
+
+nmap _$ :call Preserve("%s/\\s\\+$//e")<CR>
+nmap _= :call Preserve("normal gg=G")<CR>
+
+autocmd BufWritePre *.py,*.js :call Preserve("%s/\\s\\+$//e")
+
